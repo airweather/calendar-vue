@@ -1,6 +1,6 @@
 <template>
   <div id="container" >
-    <div id="content" style="margin:10px">
+    <div id="content">
       <header>
         <h3>신상품</h3>
         <p>새로운 상품을 만나보세요</p>
@@ -250,6 +250,10 @@ export default {
     background-color: #ccc;
   }
 
+  #content{
+    margin:10px;
+  }
+
   header {
     margin: 50px;
     text-align: center;
@@ -268,12 +272,10 @@ export default {
   #product {
     margin: 10px;
   }
-
   #product > p {
     margin-top: 5px;
     margin-bottom: 2px;
   }
-
 
   main {
     margin: 20px;
@@ -290,11 +292,9 @@ export default {
     padding-top: 20px;
     padding-bottom: 20px;
   }
-
   #control > form {
     margin: 15px
   }
-
   #control > form > h4 {
     margin-bottom: 10px
   }

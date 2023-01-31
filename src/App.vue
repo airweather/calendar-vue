@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <button @click="toggle">{{ test ? 'Calendar' : 'Test'}}</button>
-    <Test v-if="test" />
+    <button @click="toggle">{{ cssBinding ? 'Calendar' : 'CssBinding'}}</button>
+    <CssBinding v-if="cssBinding" />
     <Calendar v-else/>
     <!-- <HelloWorld v-else msg="Hello Vue 3 + Vite" /> -->
   </div>
@@ -9,23 +9,23 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue';
-import Test from './components/Test.vue';
+import CssBinding from './components/CssBinding.vue';
 import Calendar from './components/Calendar.vue';
 export default {
   data() {
     return {
-      test:true
+      cssBinding:true
     }
   },
   components: {
     HelloWorld,
     Calendar,
-    Test
+    CssBinding
   },
   methods: {
     toggle() {
-      if(this.test) this.test=!this.test
-      else this.test = true;
+      if(this.cssBinding) this.cssBinding=!this.cssBinding
+      else this.cssBinding = true;
     }
   }
 };
