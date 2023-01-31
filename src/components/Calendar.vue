@@ -32,6 +32,12 @@
           <span v-else>
             {{ date.num }}
           </span>
+          <p 
+            v-for="memo, i in date.memos" :key="i"
+            style="margin:2px; background-color: aquamarine; text-align: left;"
+          >
+            {{ memo.id }}
+          </p>
         </div>
       </div>
     </div>
@@ -57,7 +63,6 @@ export default {
     this.setDate();
     this.calcDate();
     this.dateSetup();
-    // this.datePut();
   },
   
   methods: {
@@ -67,15 +72,27 @@ export default {
           this.dates.push({
             id:`${i}`,
             num: ' ',
-            })
+            memos: '',
+            });
+        }
+        else if(i === 10){
+          this.dates.push({
+           id:`${i}`,
+           num: (i+1)-this.firstDay,
+           memos: [
+            {id: '첫번째 할일'},
+            {id: '두번째 할일'},
+          ]
+          })
         }
         else {
           this.dates.push({
            id:`${i}`,
            num: (i+1)-this.firstDay,
+           memos: ''
           })
-        }
-      }
+        };
+      };
     },
     setDate() {
       const getDate = new Date();
@@ -84,7 +101,7 @@ export default {
     },
     calcDate() {
       console.log(this.year, this.month);
-      const timeDate = this.year+'-'+this.month+'-01'
+      const timeDate = this.year+'-'+this.month+'-01';
       const date = new dayjs(timeDate);
       this.lastDay = date.daysInMonth();
       this.firstDay = date.startOf('month').$W;
@@ -96,7 +113,7 @@ export default {
         this.year--;
       }
       else if(this.month > 10) {
-        this.month--
+        this.month--;
       }
       else {
         this.month = '0'+(this.month - 1);
@@ -111,10 +128,10 @@ export default {
         this.year++;
       }
       else if(this.month > 9) {
-        this.month++
+        this.month++;
       }
       else {
-        this.month = parseInt(this.month) + 1
+        this.month = parseInt(this.month) + 1;
       }
       this.calcDate();
       this.dates = [];
@@ -125,25 +142,31 @@ export default {
 </script>
 
 <style>
-  /* #calendar {
-    height:1000px
-  } */
 
   #calendar-container {
     margin: 0;
     text-align: center;
   }
-  
+
   #days {
-    height: 30px;
     display:grid;
     grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 40px;
+    grid-gap: 1px;
+  }
+  #days > div {
+    border: 1px solid #bbb;
   }
   
   #dates {
-    height: 100px;
     display:grid;
     grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: minmax(80px, auto);
+    grid-gap: 1px;
+    /* grid-template-rows: repeat(6, 80px); */
+  }
+  #dates > div {
+    border: 1px solid #bbb;
   }
 
   main {
