@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <button @click="toggle">{{ cssBinding ? 'Calendar' : 'CssBinding'}}</button>
-    <CssBinding v-if="cssBinding" />
+    <CssBinding v-if="cssBinding"/>
     <Calendar v-else/>
     <!-- <HelloWorld v-else msg="Hello Vue 3 + Vite" /> -->
   </div>
