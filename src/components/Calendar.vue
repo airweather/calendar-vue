@@ -4,6 +4,8 @@
     <div id="calendar">
       <h1>
         <button @click="lastMonth">before</button>
+        <div> &lt; </div>
+        <div> > </div>
         {{ year }} 년
         {{month}} 월
         <button @click="nextMonth">next</button>
@@ -152,7 +154,7 @@ export default {
     display:grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: 40px;
-    grid-gap: 1px;
+    grid-gap: 0.1px;
   }
   #days > div {
     border: 1px solid #bbb;
@@ -162,8 +164,7 @@ export default {
     display:grid;
     grid-template-columns: repeat(7, 1fr);
     grid-auto-rows: minmax(80px, auto);
-    grid-gap: 1px;
-    /* grid-template-rows: repeat(6, 80px); */
+    grid-gap: 0.1px;
   }
   #dates > div {
     border: 1px solid #bbb;

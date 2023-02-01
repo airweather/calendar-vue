@@ -128,7 +128,7 @@ export default {
       products: [
         {
           id: 1,
-          img: '../src/assets/1.png',
+          img: '/assets/1.png',
           brand:'샘표',
           title:'진간장 금S 1.8L',
           memo:'언제나 함깨해 온 그 맛',
@@ -138,7 +138,7 @@ export default {
         },
         {
           id: 2,
-          img:'../src/assets/2.jpg',
+          img:'/assets/2.jpg',
           brand:'동서식품',
           title:'[맥심]모카 골드 250T',
           memo:'커피 한 잔의 여유',
@@ -148,7 +148,7 @@ export default {
         },
         {
           id: 3,
-          img:'../src/assets/3.jpg',
+          img:'assets/3.jpg',
           brand:'동원',
           title:'딤섬 부추 창편 390g X 2개입',
           memo:'소스와 함께먹는 부드러움',
@@ -158,7 +158,7 @@ export default {
         },
         {
           id: 4,
-          img:'../src/assets/4.jpg',
+          img:'assets/4.jpg',
           brand:'동원',
           title:'딤섬 샤오롱바오 390g X 2개입',
           memo:'고소한 육즙 가득',
@@ -271,6 +271,7 @@ export default {
 
   #product {
     margin: 10px;
+    text-align: justify;
   }
   #product > p {
     margin-top: 5px;
