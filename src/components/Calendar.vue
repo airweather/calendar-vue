@@ -3,12 +3,10 @@
     <h1>Calendar</h1>
     <div id="calendar">
       <h1>
-        <button @click="lastMonth">before</button>
-        <div> &lt; </div>
-        <div> > </div>
+        <a @click="lastMonth">&lt;</a>
         {{ year }} 년
         {{month}} 월
-        <button @click="nextMonth">next</button>
+        <a @click="nextMonth">></a>
       </h1>
       <div id="days">
         <div v-for="day, i in days" :key="i">
@@ -60,13 +58,11 @@ export default {
       year: 0,
     }
   },
-
   created() {
     this.setDate();
     this.calcDate();
     this.dateSetup();
   },
-  
   methods: {
     dateSetup() {
       for(let i=0; i<42; i++) {
@@ -77,6 +73,7 @@ export default {
             memos: '',
             });
         }
+        // memo 확인 용 더미데이터
         else if(i === 10){
           this.dates.push({
            id:`${i}`,
@@ -102,13 +99,11 @@ export default {
       this.year = getDate.getFullYear();
     },
     calcDate() {
-      console.log(this.year, this.month);
       const timeDate = this.year+'-'+this.month+'-01';
       const date = new dayjs(timeDate);
       this.lastDay = date.daysInMonth();
       this.firstDay = date.startOf('month').$W;
     },
-
     lastMonth() {
       if(this.month <= 1) {
         this.month = 12;
@@ -144,7 +139,6 @@ export default {
 </script>
 
 <style>
-
   #calendar-container {
     margin: 0;
     text-align: center;
@@ -172,5 +166,10 @@ export default {
 
   main {
     text-align: center;
+  }
+
+  a {
+    cursor: pointer;
+    color: #999
   }
 </style>
