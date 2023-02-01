@@ -128,7 +128,7 @@ export default {
         this.month++;
       }
       else {
-        this.month = parseInt(this.month) + 1;
+        this.month = '0'+(parseInt(this.month) + 1);
       }
       this.calcDate();
       this.dates = [];
@@ -170,6 +170,6 @@ export default {
 
   a {
     cursor: pointer;
-    color: #999
+    color: #999;
   }
 </style>
