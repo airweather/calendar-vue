@@ -124,7 +124,7 @@ export default {
         this.month = 1;
         this.year++;
       }
-      else if(this.month > 9) {
+      else if(this.month >= 9) {
         this.month++;
       }
       else {
