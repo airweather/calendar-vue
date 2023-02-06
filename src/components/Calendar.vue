@@ -23,7 +23,32 @@
       </div>
       <div id="dates">
         <div v-for="date, i in dates" :key="date.id">
-          <span v-if="i%7===0" style="color:red">
+          <span v-if="(i+1)-firstDay === today && i%7 ===0 " style="
+            color:red;
+             background-color:#bbb;
+            border: none 1px;
+            border-radius: 50%;
+          ">
+            {{ date.num }}
+          </span>
+
+          <span v-else-if="(i+1)-firstDay === today && i%7 ===6 " style="
+            color:blue;
+            background-color:#bbb;
+            border: none 1px;
+            border-radius: 50%;
+          ">
+            {{ date.num }}
+          </span>
+
+          <span v-else-if="(i+1)-firstDay === today" style="
+            background-color:#bbb;
+            border: none 1px;
+            border-radius: 50%;
+          ">
+            {{ date.num }}
+          </span>
+          <span v-else-if="i%7===0" style="color:red">
             {{ date.num }}
           </span>
           <span v-else-if="i%7===6" style="color:blue">
@@ -56,6 +81,7 @@ export default {
       lastDay: 0,
       month: 0,
       year: 0,
+      today: 0,
     }
   },
   created() {
@@ -74,7 +100,7 @@ export default {
             });
         }
         // memo 확인 용 더미데이터
-        else if(i === 10){
+        else if(i === 8){
           this.dates.push({
            id:`${i}`,
            num: (i+1)-this.firstDay,
@@ -97,6 +123,8 @@ export default {
       const getDate = new Date();
       this.month = getDate.getMonth() + 1 > 9 ? getDate.getMonth() + 1 : '0' + (getDate.getMonth() + 1);
       this.year = getDate.getFullYear();
+      this.today = getDate.getDate();
+     
     },
     calcDate() {
       const timeDate = this.year+'-'+this.month+'-01';
