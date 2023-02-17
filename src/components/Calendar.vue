@@ -162,6 +162,11 @@ export default {
       this.dates = [];
       this.dateSetup();
     },
+    weekendCheck() {
+      //0 > sun - red
+      //6 > sat - blue
+      //else > mon to fri - black
+    }
   },
 }
 </script>
