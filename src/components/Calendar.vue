@@ -172,6 +172,8 @@ export default {
 </script>
 
 <style>
+  .holiday, .sunday {}
+
   #calendar-container {
     margin: 0;
     text-align: center;
